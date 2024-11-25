@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="action_group_buying" model="ir.actions.act_window">
+        <field name="name">團購表單</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">group.buying</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

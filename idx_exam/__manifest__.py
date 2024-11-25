@@ -7,11 +7,17 @@
     'author': 'Test小明',
     'depends': ['base','purchase'],
     'data': [
+        'security/ir.model.access.csv',
+        'views/view_action.xml',
         'views/idx_purchase.xml',
         'views/group_buying.xml',
+        'views/view_menuitem.xml',
 
 
-        # 'security/ir.model.access.csv',
+
+
+
+
     ],
     'license': 'Other proprietary',
     'installable': True,

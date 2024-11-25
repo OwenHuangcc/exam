@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="group_buying_tree" model="ir.ui.view">
-        <field name="name">group_buying_form</field>
+        <field name="name">group.buying.tree</field>
         <field name="model">group.buying</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
                 <field name="user_id"/>
                 <field name="open_date"/>
-                <field name="close_date"/>
-
+                <field name="close_date" optional="hide" widget="remaining_days"/>
             </tree>
-
-
         </field>
+    </record>
 
+    <record id="group_buying_form" model="ir.ui.view">
+        <field name="name">group_buying_form</field>
+        <field name="model">group.buying</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group col="2">
+                            <field name="name"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group col="2">
+                            <field name="open_date"/>
+                            <field name="close_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="group_buying_ids">
+                            <tree editable="bottom">
+                                <field name="partner_id"/>
+                                <field name="product_id"/>
+                                <field name="qty"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
 

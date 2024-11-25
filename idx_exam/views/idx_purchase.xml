@@ -6,12 +6,8 @@
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="is_centralized"/>
+                <field name="is_centralized" attrs="{'readonly': [('state','not in',('purchase','draft'))]}"/>
             </xpath>
-
         </field>
     </record>
-
-
 </odoo>
-<!--purchase.purchase_order_form-->
