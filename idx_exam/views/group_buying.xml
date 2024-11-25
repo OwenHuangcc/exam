@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="group_buying_tree" model="ir.ui.view">
+        <field name="name">group_buying_form</field>
+        <field name="model">group.buying</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="open_date"/>
+                <field name="close_date"/>
+
+            </tree>
+
+
+        </field>
+
+    </record>
+
+
+</odoo>
