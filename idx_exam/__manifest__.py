@@ -8,15 +8,12 @@
     'depends': ['base','purchase'],
     'data': [
         'security/ir.model.access.csv',
+        'security/group_buying_security.xml',
         'views/view_action.xml',
+        'data/sequence.xml',
         'views/idx_purchase.xml',
         'views/group_buying.xml',
         'views/view_menuitem.xml',
-
-
-
-
-
 
     ],
     'license': 'Other proprietary',

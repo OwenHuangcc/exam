@@ -43,5 +43,18 @@
         </field>
     </record>
 
+    <record id="group_buying_search" model="ir.ui.view">
+        <field name="name">group_buying_search</field>
+        <field name="model">group.buying</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="開團單號" filter_domain="[('name', 'ilike', self)]"/>
+                <filter name="open_date" string="開團日期" date="open_date"/>
+                <group expand="0" string="Group By">
+                    <filter name="user_id" string="開團人員" context="{'group_by':'user_id'}"/>
+                </group>
 
+            </search>
+        </field>
+    </record>
 </odoo>

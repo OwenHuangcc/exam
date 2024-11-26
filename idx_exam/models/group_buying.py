@@ -1,6 +1,6 @@
 from email.policy import default
 
-from odoo import api, fields, models, _
+from odoo import api, fields, models,_
 from odoo.exceptions import UserError
 
 
@@ -8,7 +8,7 @@ class GroupBuying(models.Model):
     _name = "group.buying"
     _description = "團購表單"
 
-    name = fields.Char(string='開團單號', required=True, default='NEW')
+    name = fields.Char(string='開團單號', required=True, default=lambda self: _('New'), readonly=True)
     user_id = fields.Many2one('res.users',
                               string='開團人員',
                               default=lambda self: self.env.user)
@@ -20,8 +20,16 @@ class GroupBuying(models.Model):
     @api.constrains('open_date', 'close_date')
     def check_date(self):
         for rec in self:
-            if rec.open_date > rec.close_date:
+            if rec.open_date >= rec.close_date:
                 raise UserError(_('開團日期需早於結單日期!'))
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('group.buying.sequence') or _('New')
+
+        result = super(GroupBuying, self).create(vals)
+        return result
 
 
 class GroupBuyingLine(models.Model):
